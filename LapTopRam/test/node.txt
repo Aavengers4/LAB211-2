@@ -1,0 +1,19 @@
+   
+    public void sort() {
+        Comparator<RAMItem> Ramsort = new Comparator<RAMItem>() {
+            @Override
+            public int compare(RAMItem a, RAMItem b) {
+                int sortbytype = a.getType().compareToIgnoreCase(b.getType());
+                if (sortbytype != 0) {
+                    return sortbytype;
+                }
+                int sortByBus = Integer.compare(a.getBus(), b.getBus());
+                if (sortByBus != 0) {
+                    return sortByBus;
+                }
+                int sortByBrand = a.getBrand().compareToIgnoreCase(b.getBrand());
+                return sortByBrand;
+            }
+        };
+        Collections.sort(listRam, Ramsort);
+    }
